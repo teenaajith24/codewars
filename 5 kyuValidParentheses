@@ -1,0 +1,28 @@
+Write a function called that takes a string of parentheses, and determines if the order of the parentheses is valid. The function should return true if the string is valid, and false if it's invalid.
+
+Examples
+
+"()"              =>  true
+")(()))"          =>  false
+"("               =>  false
+"(())((()())())"  =>  true
+
+
+
+def valid_parentheses(string)
+  #your code here
+  string1 = string.split("").keep_if{ |item| item == "(" || item == ")"}.join
+  return false if string1.length.odd?
+  stack = []
+  string1.each_char  do |item|
+    case item
+    when "("
+      stack << item
+    when ")"
+      return false if stack.empty? 
+      stack.pop
+    end 
+  end
+  
+  stack.empty? ? true : false  
+end
