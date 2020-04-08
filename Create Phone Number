@@ -1,0 +1,8 @@
+
+Ruby:
+
+def createPhoneNumber(numbers)
+  #TODO
+  return "(#{numbers.take(3).join}) #{numbers[3,3].join}-#{numbers[6,4].join}"
+
+end
