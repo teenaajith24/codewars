@@ -1,0 +1,15 @@
+
+
+
+# Test if number is prime
+def isPrime(num)
+  # Your code here
+  if num > 1
+    for i in 2..Math.sqrt(num)
+      return false if num % i == 0   
+    end
+  else
+    return false  
+  end
+  return true 
+end
