@@ -1,0 +1,25 @@
+Write a function that will find all the anagrams of a word from a list. You will be given two inputs a word and an array with words. You should return an array of all the anagrams or an empty array if there are none. For example:
+
+anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa']
+
+anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']) => ['carer', 'racer']
+
+anagrams('laser', ['lazing', 'lazy',  'lacer']) => []
+
+
+def split_to_hash(str)
+  word_hash = {}
+  str.split('').each do |temp|
+    word_hash[temp] = str.count(temp)
+  end
+  return word_hash
+end
+
+def anagrams(word, words)
+  new_array = []
+  main_hash = split_to_hash(word)
+  words.each do |word1|
+   new_array << word1  if main_hash ==  split_to_hash(word1) 
+  end
+  return new_array
+end
