@@ -1,0 +1,12 @@
+Write a function cakes(), which takes the recipe (object) and the available ingredients (also an object) and returns the maximum number of cakes Pete can bake (integer). For simplicity there are no units for the amounts (e.g. 1 lb of flour or 200 g of sugar are simply 1 or 200). Ingredients that are not present in the objects, can be considered as 0.
+
+
+def cakes(recipe, available)
+  new_array = []
+return 0  if  available.empty?
+return 0 unless recipe.each_key.all?{ |key| available.include? key}
+recipe.each do |key,value|
+  new_array << available[key].divmod(value)[0]
+end
+new_array.min
+end
