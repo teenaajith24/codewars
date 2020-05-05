@@ -1,0 +1,7 @@
+
+def string_letter_count(s)
+  return '' if s.empty? 
+  new_str = ""
+  s.downcase.scan(/[a-z]/).sort.group_by { |x| x }.values.each { |row| new_str += "#{row.length}#{row.first}"}
+  return new_str
+end
