@@ -1,0 +1,24 @@
+def combine(s1)
+  count = 1
+  len = s1.length
+ while count <= (len/2)
+  s1.push(s1.shift(2).join)
+    count += 1
+ end
+ return s1
+end
+
+def reverse_and_combine_text(s)
+   temp = s.split
+  rev = []
+  while temp.count > 1
+    #  reverse all
+    temp = temp.map { |text| text.reverse }
+    if temp.length.odd? 
+      temp = combine(temp.shift(temp.length - 1)).push(temp[-1])
+    else 
+      temp = combine(temp.shift(temp.length))
+    end
+  end
+   return temp.join
+end
